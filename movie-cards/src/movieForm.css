@@ -1,0 +1,41 @@
+.movie-form {
+  display: flex;
+  width: 1440px;
+  margin: auto;
+  margin-top: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+.movie-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.movie-form form .title {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+
+.movie-form form .rating {
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-form form .rating #id {
+  margin-bottom: 8px;
+}
+
+.movie-form form .rating .rating-slider-label {
+  display: flex;
+  flex-direction: row;
+  width: 148px;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.movie-form form .rating .rating-slider-label p {
+  margin: 0;
+}
