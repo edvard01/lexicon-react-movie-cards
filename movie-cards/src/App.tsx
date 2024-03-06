@@ -1,9 +1,11 @@
-import { MovieForm } from "./MovieForm";
+import { MovieFormModal } from "./MovieFormModal";
+import { Nav } from "./Nav";
 
 export function App() {
   return (
     <>
-      <MovieForm />
+      <Nav />
+      <MovieFormModal />
     </>
   );
 }

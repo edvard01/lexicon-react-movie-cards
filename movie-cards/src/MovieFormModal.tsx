@@ -1,8 +1,8 @@
 import React, { ChangeEvent } from "react";
 import { useState } from "react";
-import "./movieForm.css";
+import "./movieFormModal.css";
 
-export function MovieForm() {
+export function MovieFormModal() {
   const [sliderValue, setSliderValue] = useState<number>(3);
 
   function handleSliderChange(event: ChangeEvent<HTMLInputElement>) {
@@ -36,7 +36,7 @@ export function MovieForm() {
               <p>5</p>
             </span>
           </span>
-          <select>
+          <select className="genre">
             <option value="" disabled selected hidden>
               Select genre
             </option>
@@ -51,6 +51,11 @@ export function MovieForm() {
             <option value="Adventure">Adventure</option>
             <option value="Mystery">Mystery</option>
           </select>
+          <label id="desc">Description: </label>
+          <textarea className="desc-input" />
+          <button type="submit" className="submit-button">
+            Add review
+          </button>
         </form>
       </div>
     </>

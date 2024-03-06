@@ -1,0 +1,46 @@
+.nav {
+  width: 1440px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.nav .content {
+  display: flex;
+  align-items: center;
+  width: 30%;
+  justify-content: space-around;
+}
+
+.nav .content .nav-item {
+  width: 200px;
+  height: 100px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav .content .nav-item:hover {
+  background-color: lightgray;
+  cursor: pointer;
+}
+
+.nav .content .nav-item a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav .content button {
+  width: 100px;
+  padding: 5px;
+  border-radius: 6px;
+  border: none;
+  background-color: rgb(0, 123, 255);
+  color: white;
+}
+
+.nav .content button:hover {
+  cursor: pointer;
+  background-color: rgb(0, 86, 178);
+}
