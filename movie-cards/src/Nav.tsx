@@ -1,6 +1,10 @@
 import "./nav.css";
 
-export function Nav() {
+interface INav {
+  openModal: () => void;
+}
+
+export function Nav({ openModal }: INav) {
   return (
     <>
       <div className="nav">
@@ -8,7 +12,7 @@ export function Nav() {
           <span className="nav-item">
             <a href="#">Home</a>
           </span>
-          <button>Add review</button>
+          <button onClick={openModal}>Add review</button>
         </div>
       </div>
     </>
