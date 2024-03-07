@@ -36,13 +36,22 @@
 }
 
 .review-content .review .info .rating .yellow {
-  color: rgb(177, 177, 17);
+  color: rgb(206, 206, 24);
 }
 
 .review-content .review .info .rating .grey {
-  color: grey;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .review-content .review .genre {
   margin-top: 0px;
+}
+
+.review-content .review .see-more-link a {
+  display: flex;
+  align-items: center;
+}
+
+.review-content .review .see-more-link a:hover {
+  cursor: pointer;
 }

@@ -3,6 +3,7 @@ import { useState } from "react";
 import "./movieFormModal.css";
 
 interface IReview {
+  id: number;
   title: string;
   rating: number;
   genre: string;
@@ -10,15 +11,19 @@ interface IReview {
 }
 
 interface IMovieFormModalProps {
+  id: number;
   open: boolean;
   onClose: () => void;
   addReview: (review: IReview) => void;
+  increaseId: () => void;
 }
 
 export function MovieFormModal({
+  id,
   open,
   onClose,
   addReview,
+  increaseId,
 }: IMovieFormModalProps) {
   const [title, setTitle] = useState<string>("");
   const [sliderValue, setSliderValue] = useState<number>(3);
@@ -34,6 +39,7 @@ export function MovieFormModal({
     e.preventDefault();
 
     let review = {
+      id: id,
       title: title,
       rating: sliderValue,
       genre: genre,
@@ -43,6 +49,7 @@ export function MovieFormModal({
     addReview(review);
     clear();
     onClose();
+    increaseId();
   }
 
   function handleModalClick(e: React.MouseEvent<HTMLDivElement>) {

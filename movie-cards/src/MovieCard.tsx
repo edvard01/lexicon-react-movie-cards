@@ -1,4 +1,5 @@
 interface IReview {
+  id: number;
   title: string;
   rating: number;
   genre: string;
@@ -8,9 +9,25 @@ interface IReview {
 interface IMovieCardProps {
   item: IReview;
   setupRating: (rating: number) => string;
+  handleInspectClick: (id: number) => void;
 }
 
-export function MovieCard({ item, setupRating }: IMovieCardProps): JSX.Element {
+export function MovieCard({
+  item,
+  setupRating,
+  handleInspectClick,
+}: IMovieCardProps): JSX.Element {
+  let descTooLong = false;
+  let shortDesc = adjustDesc();
+  function adjustDesc() {
+    if (item.description.length > 68) {
+      descTooLong = true;
+      return item.description.substring(0, 68);
+    }
+
+    return "";
+  }
+
   return (
     <>
       <div className="review">
@@ -22,7 +39,17 @@ export function MovieCard({ item, setupRating }: IMovieCardProps): JSX.Element {
           ></span>
         </span>
         <p className="genre">{item.genre}</p>
-        <p className="description">{item.description}</p>
+        {descTooLong ? (
+          <p className="description">{shortDesc}...</p>
+        ) : (
+          <p className="description">{item.description}</p>
+        )}
+        <span className="see-more-link">
+          <a onClick={() => handleInspectClick(item.id)}>
+            See more
+            <span className="material-symbols-outlined">arrow_right</span>
+          </a>
+        </span>
       </div>
     </>
   );

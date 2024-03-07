@@ -2,6 +2,7 @@ import { MovieCard } from "./MovieCard";
 import "./reviewDisplay.css";
 
 interface IReview {
+  id: number;
   title: string;
   rating: number;
   genre: string;
@@ -10,9 +11,13 @@ interface IReview {
 
 interface IReviewDisplayProps {
   reviews: IReview[];
+  openInspectModal: (id: number) => void;
 }
 
-export function ReviewDisplay({ reviews }: IReviewDisplayProps) {
+export function ReviewDisplay({
+  reviews,
+  openInspectModal,
+}: IReviewDisplayProps) {
   function setupRating(rating: number): string {
     let html: string = "";
     for (let i = 1; i <= rating; i++) {
@@ -25,11 +30,20 @@ export function ReviewDisplay({ reviews }: IReviewDisplayProps) {
     return html;
   }
 
+  function handleInspectClick(id: number) {
+    openInspectModal(id);
+  }
+
   return (
     <>
       <div className="review-content">
         {reviews.map((item, index) => (
-          <MovieCard item={item} setupRating={setupRating} key={index} />
+          <MovieCard
+            item={item}
+            setupRating={setupRating}
+            handleInspectClick={handleInspectClick}
+            key={index}
+          />
         ))}
       </div>
     </>
