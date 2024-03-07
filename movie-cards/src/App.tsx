@@ -11,7 +11,7 @@ interface IReview {
 }
 
 export function App() {
-  const [reviews, setReviews] = useState<IReview[]>([]);
+  const [reviews, setReviews] = useState<IReview[]>(seedReviews());
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   function modalChangeState() {
     if (modalOpen) {
@@ -19,6 +19,52 @@ export function App() {
     } else {
       setModalOpen(true);
     }
+  }
+
+  function seedReviews(): IReview[] {
+    const array: IReview[] = [
+      {
+        title: "Placeholder 1",
+        rating: 2,
+        genre: "Horror",
+        description:
+          "Cheap horror movie only filled with jumpscares. Overall disappointing",
+      },
+      {
+        title: "Placeholder 2",
+        rating: 4,
+        genre: "Action",
+        description: "Fun action movie with some adventure mixed in!",
+      },
+      {
+        title: "Placeholder 1",
+        rating: 2,
+        genre: "Horror",
+        description:
+          "Cheap horror movie only filled with jumpscares. Overall disappointing",
+      },
+      {
+        title: "Placeholder 2",
+        rating: 4,
+        genre: "Action",
+        description: "Fun action movie with some adventure mixed in!",
+      },
+      {
+        title: "Placeholder 1",
+        rating: 2,
+        genre: "Horror",
+        description:
+          "Cheap horror movie only filled with jumpscares. Overall disappointing",
+      },
+      {
+        title: "Placeholder 2",
+        rating: 4,
+        genre: "Action",
+        description: "Fun action movie with some adventure mixed in!",
+      },
+    ];
+
+    return array;
   }
 
   function addReview(review: IReview) {
