@@ -32,6 +32,7 @@ export function MovieFormModal({
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
+
     let review = {
       title: title,
       rating: sliderValue,
@@ -40,12 +41,21 @@ export function MovieFormModal({
     };
     console.log(review);
     addReview(review);
+    clear();
+    onClose();
   }
 
   function handleModalClick(e: React.MouseEvent<HTMLDivElement>) {
     if (e.target === e.currentTarget) {
       onClose();
     }
+  }
+
+  function clear() {
+    setTitle("");
+    setSliderValue(3);
+    setGenre("");
+    setDesc("");
   }
 
   return (
@@ -65,6 +75,7 @@ export function MovieFormModal({
                     type="text"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
+                    required
                   />
                 </span>
                 <span className="rating">
@@ -88,10 +99,9 @@ export function MovieFormModal({
                 <select
                   className="genre"
                   onChange={(e) => setGenre(e.target.value)}
+                  required
                 >
-                  <option disabled selected hidden>
-                    Select genre
-                  </option>
+                  <option value="">Select Genre</option>
                   <option value="Horror">Horror</option>
                   <option value="Action">Action</option>
                   <option value="Drama">Drama</option>

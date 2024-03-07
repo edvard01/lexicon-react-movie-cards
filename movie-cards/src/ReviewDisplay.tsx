@@ -1,3 +1,4 @@
+import { MovieCard } from "./MovieCard";
 import "./reviewDisplay.css";
 
 interface IReview {
@@ -28,16 +29,7 @@ export function ReviewDisplay({ reviews }: IReviewDisplayProps) {
     <>
       <div className="review-content">
         {reviews.map((item, index) => (
-          <div className="review" key={index}>
-            <span className="info">
-              <h4>{item.title}</h4>
-              <span
-                className="rating"
-                dangerouslySetInnerHTML={{ __html: setupRating(item.rating) }}
-              ></span>
-            </span>
-            <p className="genre">{item.genre}</p>
-          </div>
+          <MovieCard item={item} setupRating={setupRating} key={index} />
         ))}
       </div>
     </>
